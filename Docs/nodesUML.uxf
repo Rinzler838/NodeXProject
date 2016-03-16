@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.1.1">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>180</x>
+      <y>490</y>
+      <w>230</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>Controller::NodeController
+--
+- notHipsterInts: CTECArray *
+- arrayTimer: Timer
+--
++ NodeController(): constructor
++ ~NodeController(): destructor
++ start(): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>180</x>
+      <y>620</y>
+      <w>230</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>Controller::NodeRunner
+--
++ main(): int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>250</y>
+      <w>480</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>Model::CTECArray&lt;Type&gt;
+--
+- size: int
+- head: ArrayNode *
+--
++ getSize(): int
++ set(int position, &lt;Type&gt; value): void
++ get(int position): &lt;Type&gt;
++ CTECArray&lt;Type&gt; (int size): constructor
++ ~CTECArray(): destructor
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>520</x>
+      <y>250</y>
+      <w>480</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>Model::Node&lt;type&gt;
+--
+- value: &lt;Type&gt;
+- pointers: Node *
+--
++ getValue(): &lt;Type&gt;
++ setValue(const, &lt;Type&gt; value) :void
++ getPointers(): Node *
++ Node(const, &lt;Type&gt; value)
++ Node(): constructor
++ ~Node(): destructor
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>520</x>
+      <y>500</y>
+      <w>480</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>Model::ArrayNode&lt;type&gt;
+--
+- next: ArrayNode *
+--
++ ArrayNode(&lt;Type&gt; value): 
++ ArrayNode(&lt;Type&gt; value, ArrayNode * next): 
++ getNext(): ArrayNode *
++ setNext(ArrayNode * next):void
++ ArrayNode(): constructor
++ ~ArrayNode(): destructor
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1020</x>
+      <y>250</y>
+      <w>300</w>
+      <h>310</h>
+    </coordinates>
+    <panel_attributes>Model::CTECList
+--
+- size: int
+- head: ArrayNode&lt;Type&gt;
+- end: ArrayNode&lt;Type&gt;
+--
++ CTECList(): constructor
++ ~CTECList(): destructor
++ getSize(): int size
+- calculateSize(): void
++ addToFront(Type value): void
++ addToEnd(Tye value): void
++ addAtIndex(int index, Type value): void
++ getFront(): Type
++ getEnd(): Type
++ getFrontFromIndex(int index): Type
++ removeFromFront(): Type
++ removeFromEnd(): Type
++ removeFromIndex(int index): Type
++ set(int index, Type value): Type
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>170</x>
+      <y>460</y>
+      <w>250</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>Controller
+--
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>750</x>
+      <y>400</y>
+      <w>30</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>790</x>
+      <y>440</y>
+      <w>250</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=0..n</panel_attributes>
+    <additional_attributes>230.0;10.0;10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>330</x>
+      <y>390</y>
+      <w>430</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=0..n</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0;390.0;60.0;390.0;110.0</additional_attributes>
+  </element>
+</diagram>
