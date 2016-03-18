@@ -291,6 +291,7 @@
 				7C3AB69D1C99A497000FFBC4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

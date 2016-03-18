@@ -7,12 +7,12 @@
 
 #include "NodeController.h"
 
-NodeController::NodeController()
+NodeController :: NodeController()
 {
 	notHipsterInts = new CTECArray<int>(5);
 }
 
-NodeController::~NodeController()
+NodeController :: ~NodeController()
 {
 	//TODO Auto-generated destructor stub
 }

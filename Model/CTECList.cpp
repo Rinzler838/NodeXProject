@@ -274,6 +274,26 @@ Type CTECList<Type>::removeFromIndex(int index)
 	return thingToRemove;
 }
 
+template <class Type>
+int CTECList<Type> :: indexOf(Type searchValue)
+{
+    assert (this->size > 0);
+    int index = -1;
+    ArrayNode<Type> * searchPointer = head;
+    
+    for (searchPointer = head; searchPointer != nullptr; searchPointer = searchPointer->getNext())
+    {
+        if (searchValue == searchPointer->searchValue)
+        {
+            return index;
+        }
+        index++;
+    }
+    index = -1;
+    
+    return index;
+}
+
 /**
  * Calculates the size of the list by iterating over all nodes in the list.
  */
