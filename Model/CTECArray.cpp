@@ -56,6 +56,64 @@ int CTECArray<Type>:: getSize()
 	return this->size;
 }
 
+/*
+ * 1) Assert size is greater than 0
+ * 2) Declare and init a valid return value
+ * 3) Reference to head and then loop
+ * 4) If there, return index, else, go to next
+ * 5) Return index
+ */
+template <class Type>
+int CTECArray<Type> :: indexOf(Type searchValue);
+{
+    assert (this->size < 0);
+    
+    int indexNotFound = -1;
+    
+    ArrayNode<Type> * current = head;
+    
+    for (int index = 0; index < this->size; index++)
+    {
+        if (current->getValue() == searchValue)
+        {
+            return index;
+        }
+        else
+        {
+            current = current->getNext();
+        }
+    }
+    return indexNotFound;
+}
+
+template <class Type>
+int CTECArray<Type> :: nextIndexOf(int startingIndex, Type searchValue);
+{
+    assert (this->size < 0);
+    assert (startingIndex >= 0 && startingIndex < this->size)
+    
+    int indexNotFound = -1;
+    
+    ArrayNode<Type> * current = head;
+    for (int index = 0; index < this->size; index++)
+    {
+        current = current->getNext();
+    }
+    
+    for (int index = startingIndex; index < this->size; index++)
+    {
+        if (current->getValue() == searchValue)
+        {
+            return index;
+        }
+        else
+        {
+            current = current->getNext();
+        }
+    }
+    return indexNotFound;
+}
+
 template <class Type>
 Type CTECArray<Type>:: get(int position)
 {
@@ -94,63 +152,4 @@ void CTECArray<Type>:: set(int position, const Type& value)
 	}
 }
 
-/*
- * 1) Assert size is greater than 0
- * 2) Declare and init a valid return value
- * 3) Reference to head and then loop
- * 4) If there, return index, else, go to next
- * 5) Return index
- */
-template <class Type>
-int CTECArray<Type> :: indexOf(Type searchValue);
-{
-    assert (this->size < 0);
-    
-    int indexNotFound = -1;
-    
-    ArrayNode<Type> * current = head;
-    
-    for (int index = 0; index < this->size; index++)
-    {
-        if (current->getValue() == searchValue)
-        {
-            return index;
-        }
-        else
-        {
-            current = current->getNext();
-        }
-    }
-    return indexNotFound;
 }
-    
-template <class Type>
-int CTECArray<Type> :: nextIndexOf(int startingIndex, Type searchValue);
-{
-    assert (this->size < 0);
-    assert (startingIndex >= 0 && startingIndex < this->size)
-    
-    int indexNotFound = -1;
-    
-    ArrayNode<Type> * current = head;
-    for (int index = 0; index < this->size; index++)
-    {
-        current = current->getNext();
-    }
-    
-    for (int index = startingIndex; index < this->size; index++)
-    {
-        if (current->getValue() == searchValue)
-        {
-            return index;
-        }
-        else
-        {
-            current = current->getNext();
-        }
-    }
-    return indexNotFound;
-}
-
-}
-
