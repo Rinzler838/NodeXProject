@@ -33,6 +33,8 @@ public:
 	Type removeFromIndex(int index);
 	Type set(int index, Type value);
     int indexOf(Type searchValue);
+    void swap(int indexOne, int indexTwo);
+    void selectionSort();
 };
 
 #endif /* MODEL_CTECLIST_H_ */

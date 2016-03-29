@@ -24,6 +24,8 @@ public:
     int nextIndexOf(int startingIndex, Type searchValue);
 	Type get(int position);
 	void set(int position, const Type& value);
+    void swap(int indexOne, int indexTwo);
+    void selectionSort();
 };
 
 #endif /* MODEL_CTECARRAY_H_ */
