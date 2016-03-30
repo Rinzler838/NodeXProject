@@ -6,6 +6,7 @@
  */
 
 #include "NodeController.h"
+#include <stdlib.h>
 
 NodeController :: NodeController()
 {
@@ -42,6 +43,41 @@ void NodeController :: testLists()
     cout << "Size should be 2 and is: " << numbers.getSize();
 }
 
+
+void checkSorts()
+{
+    /*
+      Create list of Array
+      Fill with random data
+      then...
+      Fill with ordered data
+    
+      Start time
+      Sort list
+      Stop time
+      Print time
+     */
+    
+    CTECArray<int> numbersInArray(5000);
+    CTECArray<int> numbersInList;
+    int cPlusPlusArray[5000];
+    for (int spot = 0; spot < 5000; spot++)
+    {
+        int randomValue = rand();
+        numbersInArray.set(spot, randomValue);
+        numbersInList.addToFront(randomValue);
+        cPlusPlusArray[spot] = randomValue;
+    }
+    
+    Timer sortTimer;
+    sortTimer.startTimer();
+    numbersInList.selectionSort();
+    sortTimer.stopTimer();
+    sortTimer.displayTimerInfo();
+    
+    sortTimer.resetTimer();
+}
+
 void NodeController :: start()
 {
 	testLists();
@@ -60,4 +96,6 @@ void NodeController :: start()
 //
 //	arrayTimer.stopTimer();
 //	arrayTimer.displayTimerInfo();
+}
+    
 }
