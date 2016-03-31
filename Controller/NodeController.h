@@ -23,12 +23,17 @@ class NodeController
 {
 private:
     Timer arrayTimer;
-    void sortData();
-	void testList():
+    void swap(int first, int second);
+    void quickSort(int first, int last);
+    int partition(int first, int last);
+    void doQuick();
+    
     void doMergeSort();
-    int * mergeData();
+    int * mergeData;
     void mergeSort(int data [], int size);
     void merge(int data [], int sizOne, int sizeTwo);
+    void sortData();
+    void testList():
 public:
     NodeController();
 	virtual ~NodeController();

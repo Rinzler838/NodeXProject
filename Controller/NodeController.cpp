@@ -89,23 +89,41 @@ void NodeController :: start()
 
 void NodeController :: doMergeSort()
 {
-    mergeData = new int[5000];
+    mergeData = new int[500000];
     
     for (int spot = 0; spot < 5000; spot++)
     {
         int myRandom = rand();
         mergeData[spot] = myRandom;
     }
+    for (int spot = 0; spot < 50; spot ++)
+    {
+        cout << mergeData[spot] << ", ";
+    }
     Timer mergeTimer;
     mergeTimer.startTimer();
     mergeSort(mergeData, 5000);
     mergeTimer.stopTimer();
-    mergeTimerdisplayTimerInfo();
+    mergeTimer.displayTimerInfo();
+    
+    delete [] mergeData;
 }
 
 void NodeController :: mergeSort(int data[], int size)
 {
-
+    int sizeOne;
+    int sizeTwo;
+    
+    if (size > 1)
+    {
+        sizeOne = sizeOne / 2;
+        sizeTwo = size - sizeOne;
+        
+        mergeSort(data, sizeOne);
+        mergeSort(data + sizeOne, sizeTwo);
+        
+        merge(data, sizeOne, sizeTwo);
+    }
 }
 
 void NodeController :: merge(int data[], int sizeOne, int sizeTwo)  //Merging the split card groups back together
@@ -145,3 +163,67 @@ void NodeController :: merge(int data[], int sizeOne, int sizeTwo)  //Merging th
     }
     delete [] temp;
 }
+
+void NodeController :: quickSort(int first, int last)
+{
+    int pivotIndex;
+    
+    if (size < last)
+    {
+        pivotIndex = partition(first, last);
+        quickSort(first, pivotIndex - 1);
+        quickSort(pivotIndex + 1, last);
+        
+    }
+}
+
+int NodeController :: partition(int first, int last)
+{
+    int pivot;
+    
+    int index, smallIndex;
+    swap (first, (first + last) / 2);
+    
+    pivot = mergeData[first];
+    smallIndex = first;
+    
+    for (index = first + 1; index <= last; index++)
+    {
+        if (mergeData[index] < pivot)
+        {
+            smallIndex++;
+            swap (smallIndex, index);
+        }
+        swap (first, smallIndex);
+        
+        return smallIndex;
+    }
+}
+
+void NodeController :: swap(int first, int last)
+{
+    int temp = mergeData[first];
+    mergeData[first] = mergeData[last];
+    mergeData[last] = temp;
+}
+
+void NodeController :: doQuick()
+{
+    mergeData = new int[500000];
+    
+    for (int spot = 0; spot < 500000; spot++)
+    {
+        int myRandom = rand();
+        mergeData[spot] = myRandom;
+    }
+    Timer mergeTimer;
+    mergeTimer.startTimer();
+    quickSort(0, 4999999);
+    mergeTimer.stopTimer();
+    mergeTimer.displayTimerInfo();
+    
+    delete [] mergeData;
+}
+
+
+
