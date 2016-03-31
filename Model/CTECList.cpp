@@ -352,16 +352,11 @@ Type CTECList<Type> :: set(int index, Type value)
 template <class Type>
 void CTECList<Type> :: swap(int indexOne, int indexTwo)
 {
-    assert (indexOne < size && indexTwo <size);
-    ArrayNode<Type> * first = getFromIndex(indexOne);
-    ArrayNode<Type> * second = getFromIndex(indexTwo);
-    ArrayNode<Type> * temp = new ArrayNode<Type>();
+    assert (indexOne < size && indexTwo < size);
     
-    temp->setValue(first->getValue());
-    first->setValue(second->getValue());
-    second->setValue(temp->getValue());
-    
-    delete temp;
+    Type temp = getFromIndex(indexOne);
+    set(indexOne, getFromIndex(indexTwo));
+    set(indexTwo, temp);
 }
     
 template <class Type>
