@@ -7,3 +7,32 @@
 //
 
 #include "TreeNode.h"
+
+template <class Type>
+TreeNode<Type> :: TreeNode()
+{
+    this->leftChilde = nullptr;
+    this->rightChild = nullptr;
+    this->parent = nullptr;
+}
+
+template <class Type>
+TreeNode<Type> :: TreeNode(const Type & value)
+{
+    this->leftChilde = nullptr;
+    this->rightChild = nullptr;
+    this->parent = nullptr;
+    
+    this->setVaue(value);
+}
+
+template <class Type>
+TreeNode<Type> :: TreeNode(const Type & value, TreeNode<Type> * parent)
+{
+    this->leftChilde = nullptr;
+    this->rightChild = nullptr;
+    this->parent = nullptr;
+    
+    this->setVaue(value);
+    this->setParent(parent);
+}
