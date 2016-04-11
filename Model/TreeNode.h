@@ -26,7 +26,7 @@ public:
     void setLeftChild(TreeNode<Type> * leftChild);
     void setRightChild(TreeNode<Type> * rightChild);
     void setParent(TreeNode<Type> * parent);
-    TreeNode<Type> * getLtChide();
+    TreeNode<Type> * getLeftChild();
     TreeNode<Type> * getRightChild();
     TreeNode<Type> * getParent();
 };
