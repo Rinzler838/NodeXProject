@@ -72,3 +72,5 @@ TreeNode<Type> * TreeNode<Type> :: getParent()
 {
     return parent;
 }
+
+
