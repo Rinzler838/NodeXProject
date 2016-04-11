@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C2046FC1CBBE6F500F04EE9 /* TreeNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7C2046FA1CBBE6F500F04EE9 /* TreeNode.cpp */; };
 		7C3AB6AF1C99A539000FFBC4 /* NodeController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7C3AB69F1C99A539000FFBC4 /* NodeController.cpp */; };
 		7C3AB6B01C99A539000FFBC4 /* NodeRunner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7C3AB6A11C99A539000FFBC4 /* NodeRunner.cpp */; };
 		7C3AB6B11C99A539000FFBC4 /* ArrayNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7C3AB6A51C99A539000FFBC4 /* ArrayNode.cpp */; };
@@ -29,6 +30,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7C2046FA1CBBE6F500F04EE9 /* TreeNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TreeNode.cpp; sourceTree = "<group>"; };
+		7C2046FB1CBBE6F500F04EE9 /* TreeNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreeNode.h; sourceTree = "<group>"; };
 		7C3AB6941C99A497000FFBC4 /* NodeXProject */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = NodeXProject; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C3AB69F1C99A539000FFBC4 /* NodeController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NodeController.cpp; sourceTree = "<group>"; };
 		7C3AB6A01C99A539000FFBC4 /* NodeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NodeController.h; sourceTree = "<group>"; };
@@ -106,6 +109,8 @@
 				7C3AB6AC1C99A539000FFBC4 /* Node.h */,
 				7C3AB6AD1C99A539000FFBC4 /* Timer.cpp */,
 				7C3AB6AE1C99A539000FFBC4 /* Timer.h */,
+				7C2046FA1CBBE6F500F04EE9 /* TreeNode.cpp */,
+				7C2046FB1CBBE6F500F04EE9 /* TreeNode.h */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -169,6 +174,7 @@
 				7C3AB6B41C99A539000FFBC4 /* Node.cpp in Sources */,
 				7C3AB6AF1C99A539000FFBC4 /* NodeController.cpp in Sources */,
 				7C3AB6B51C99A539000FFBC4 /* Timer.cpp in Sources */,
+				7C2046FC1CBBE6F500F04EE9 /* TreeNode.cpp in Sources */,
 				7C3AB6B01C99A539000FFBC4 /* NodeRunner.cpp in Sources */,
 				7C3AB6B11C99A539000FFBC4 /* ArrayNode.cpp in Sources */,
 				7C3AB6B31C99A539000FFBC4 /* CTECList.cpp in Sources */,
