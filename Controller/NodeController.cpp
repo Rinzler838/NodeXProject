@@ -109,6 +109,14 @@ void NodeController :: doMergeSort()
     delete [] mergeData;
 }
 
+void NodeController :: tryTree();
+{
+    CTECBinaryTree<> testTree;
+    testTree.insert(7);
+    testTree.insert(10);
+    testTree.insert(-5);
+}
+
 void NodeController :: mergeSort(int data[], int size)
 {
     int sizeOne;

@@ -34,6 +34,7 @@ private:
     void merge(int data [], int sizOne, int sizeTwo);
     void sortData();
     void testList():
+    void tryTree();
 public:
     NodeController();
 	virtual ~NodeController();
