@@ -41,9 +41,47 @@ bool CTECBinaryTree<Type> :: insert(const Type & value)
 }
 
 template <class Type>
-void CTECBinaryTree<Type> :: insert(const Type & value, CTECBinaryTree<Type> * currentTree))
+void CTECBinaryTree<Type> :: insert(const Type & value, CTECBinaryTree<Type> * currentTree)
 {
     
+}
+
+template <class Type>
+Type CTECBinaryTree<Type> :: remove(const Type & value)
+{
+    TreeNode<Type> * current = root;
+    TreeNode<Type> *trailing = current;
+    if (!contains(value))
+    {
+        return value;
+    }
+    else
+    {
+        while (current != nullptr&& current->getValue() != value)
+        {
+            trailing = current;
+            if (current->getValue() > value)
+            {
+                current = current->getLeftChild();
+            }
+            else
+            {
+                current = current->getRightChild();
+            }
+        }
+        if (current == root)
+        {
+            remove(root);
+        }
+        else if (trailing->getValue() > value)
+        {
+            remove(trailing->getLeftChild);
+        }
+        else
+        {
+            remove(trailing->getRightChild);
+        }
+    }
 }
 
 template <class Type>
@@ -146,4 +184,28 @@ bool CTECBinaryTree<Type> :: contains(Type value, CTECBinaryTree<Type> * current
     {
         return contains(value, currentTree->getRoot()->getRightChild());
     }
+}
+
+template <class Type>
+TreeNode<Type> * CTECBinaryTree<Type> :: getRightMostChild(CTECBinaryTree<Type> * leftSubTree)
+{
+    TreeNode<Type> * rightNode = leftSubTree->getRoot();
+    while (rightNode->getRightChild() != nullptr)
+    {
+        rightNode = rightNode->getRightChild();
+    }
+    
+    return rightNode;
+}
+
+template <class Type>
+TreeNode<Type> * CTECBinaryTree<Type> :: getLeftMostChild(CTECBinaryTree<Type> * rightSubTree)
+{
+    TreeNode<Type> * leftNode = rightSubTree->getRoot();
+    while (leftNode->getLeftChild() != nullptr)
+    {
+        leftNode = leftNode->getLeftChild();
+    }
+    
+    return leftNode;
 }
