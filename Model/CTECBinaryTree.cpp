@@ -20,8 +20,22 @@ CTECBinaryTree<Type> :: CTECBinaryTree()
 }
 
 template <class Type>
+CTECBinaryTree<Type> :: ~CTECBinaryTree()
+{
+    while (root != nullptr)
+    {
+        remove(root);
+    }
+}
+
+template <class Type>
 bool CTECBinaryTree<Type> :: insert(const Type & value)
 {
+    TreeNode<Type> * insertedNode(value);
+    TreeNode<Type> * current;
+    TreeNode<Type> * trailingCurrent;
+    
+    assert (insertedNode != nullptr);
     if (contains(value))
     {
         return false;
@@ -38,12 +52,6 @@ bool CTECBinaryTree<Type> :: insert(const Type & value)
         }
         return true;
     }
-}
-
-template <class Type>
-void CTECBinaryTree<Type> :: insert(const Type & value, CTECBinaryTree<Type> * currentTree)
-{
-    
 }
 
 template <class Type>
