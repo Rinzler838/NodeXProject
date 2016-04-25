@@ -6,7 +6,10 @@
  */
 
 #include "NodeController.h"
+#include <iostream>
 #include <stdlib.h>
+
+using namespace std;
 
 NodeController :: NodeController()
 {
@@ -16,6 +19,16 @@ NodeController :: NodeController()
 NodeController :: ~NodeController()
 {
 	//TODO Auto-generated destructor stub
+}
+
+void NodeController :: start()
+{
+    
+}
+
+void NodeController :: searchList()
+{
+    
 }
 
 void NodeController :: testList()
@@ -44,7 +57,7 @@ void NodeController :: testList()
 }
 
 
-void checkSorts()
+void NodeController :: sortData()
 {
     /*
       Create list of Array
@@ -59,8 +72,9 @@ void checkSorts()
      */
     
     CTECArray<int> numbersInArray(5000);
-    CTECArray<int> numbersInList;
+    CTECList<int> numbersInList;
     int cPlusPlusArray[5000];
+    
     for (int spot = 0; spot < 5000; spot++)
     {
         int randomValue = rand();
@@ -76,36 +90,38 @@ void checkSorts()
     sortTimer.displayTimerInfo();
     
     sortTimer.resetTimer();
+    
+    sortTimer.startTimer();
+    std::sort(std :: begin(cPlusPlusArray), std :: end( cPlusPlusArray));
+    sortTimer.stopTimer();
+    sortTimer.displayTimerInfo();
+    
+    sortTimer.resetTimer();
 }
-
-void NodeController :: start()
-{
-	testList();
-	arrayTimer.stopTimer();
-	arrayTimer.displayTimerInfo();
-}
-
-
 
 void NodeController :: doMergeSort()
 {
-    mergeData = new int[500000];
+    mergeData = new int[500000000];
     
-    for (int spot = 0; spot < 5000; spot++)
+    for (int spot = 0; spot < 500000000; spot++)
     {
-        int myRandom = rand();
+        int myRandom = rand() % 1000;
         mergeData[spot] = myRandom;
     }
-    for (int spot = 0; spot < 50; spot ++)
+    for (int spot = 0; spot < 5000; spot ++)
     {
         cout << mergeData[spot] << ", ";
     }
     Timer mergeTimer;
     mergeTimer.startTimer();
-    mergeSort(mergeData, 5000);
+    mergeSort(mergeData, 500000000);
     mergeTimer.stopTimer();
     mergeTimer.displayTimerInfo();
     
+    for (int spot = 0; spot < 5000; spot++)
+    {
+        cout <<mergeData[spot] << ", ";
+    }
     delete [] mergeData;
 }
 
@@ -187,7 +203,7 @@ void NodeController :: quickSort(int first, int last)
 {
     int pivotIndex;
     
-    if (size < last)
+    if (first < last)
     {
         pivotIndex = partition(first, last);
         quickSort(first, pivotIndex - 1);

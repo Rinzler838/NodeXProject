@@ -23,6 +23,10 @@ class NodeController
 {
 private:
     Timer arrayTimer;
+    void sortData();
+    void testList();
+    void searchList();
+    
     void swap(int first, int second);
     void quickSort(int first, int last);
     int partition(int first, int last);
@@ -32,8 +36,6 @@ private:
     int * mergeData;
     void mergeSort(int data [], int size);
     void merge(int data [], int sizOne, int sizeTwo);
-    void sortData();
-    void testList():
     void tryTree();
 public:
     NodeController();
