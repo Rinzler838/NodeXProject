@@ -109,12 +109,23 @@ void NodeController :: doMergeSort()
     delete [] mergeData;
 }
 
-void NodeController :: tryTree();
+void NodeController :: tryTree()
 {
-    CTECBinaryTree<> testTree;
+    CTECBinaryTree<int> testTree;
     testTree.insert(7);
     testTree.insert(10);
     testTree.insert(-5);
+    testTree.insert('4');
+    
+    cout << testTree.contains('7');
+    cout << " Inorder Traversal " << endl;
+    testTree.inorderTraversal(testTree.getRoot());
+    testTree.remove
+    cout << "\nPreorder Traversal " << endl;
+    testTree.preorderTraversal(testTree.getRoot());
+    cout << "\nPostorder Traversal " << endl;
+    testTree.postorderTraversal(testTree.getRoot());
+    cout << "\nTrees " << endl;
 }
 
 void NodeController :: mergeSort(int data[], int size)

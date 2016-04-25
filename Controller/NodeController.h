@@ -40,5 +40,4 @@ public:
 	virtual ~NodeController();
 	void start();
 };
-
 #endif /* CONTROLLER_NODECONTROLLER_H_ */
