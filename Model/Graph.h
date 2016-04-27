@@ -17,20 +17,23 @@ class Graph
 {
 private:
     static const int MAXIMUM = 20;
-    bool egdes [MAXIMUM] [MAXIMUM]; //This is the adjacency matrix.
+    bool egdes [MAXIMUM][MAXIMUM]; //This is the adjacency matrix.
     Type labels [MAXIMUM];
     int manyVertices;
+    void depthFirstTraversal(Graph<Type> currentGraph, int vertex, bool * markedVertices);
 public:
     Graph();
     virtual ~Graph();
     void addVertex(const Type & label);
-    void addEdge(int source, int terget);
+    void addEdge(int source, int target);
     void removeEdge(int source, int target);
     Type & operator [] (int vertex);
     int size() const;
     bool isEdge(int source, int target) const;
     std :: set<int> neightbors(int vertex) const;
     Type operator [] (int vertex) const;
+    void depthFirstTraversal(Graph<Type> currentGraph, int vertex);
+    void breadthFirstTraversal(Graph<Type> currentGh, int vertex);
 };
 
 #endif /* Graph_h */

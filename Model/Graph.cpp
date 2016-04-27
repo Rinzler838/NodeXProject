@@ -7,6 +7,10 @@
 //
 
 #include "Graph.h"
+#include <iostream>
+#include <queue>
+
+using namespace std;
 
 template <class Type>
 const int Graph<Type> :: MAXIMUM;
@@ -16,7 +20,7 @@ void Graph<Type> :: addEdge(int source, int target)
 {
     assert (source < size());
     assert (target < size());
-    edges [source][target] = true;
+    edges[source][target] = true;
 }
 
 template <class Type>
@@ -84,5 +88,62 @@ void Graph<Type> :: removeEdge(int source, int target)
 {
     assert(source < size() && target < size());
     edges[source][target] = false;
+}
+
+template <class Type>
+void Graph<Type> :: depthFirstTraversal(Graph<Type> currentGraph, int vertex)
+{
+    bool markedVertices[MAXIMUM];
+    assert (vertex < currentGraph.size());
+    std :: fill_n(markedVertices, currentGraph.size(), false);
+    depthFirstTraversal(currentGraph, vertex, markedVertices);
+}
+
+template <class Type>
+void Graph<Type> :: depthFirstTraversal(Graph<Type> currentGraph, int vertex, bool * markedVertices)
+{
+    std :: set<int> connections = currentGraph.neighbors(vertex);
+    std :: set<int> :: iterator setIterator;
+    
+    markedVertices[vertex] = true;
+    cout << currentGraph[vertex] << endl;
+    
+    for (setIterator = connections.begin(); setIterator != connections.end(); setIterator++)
+    {
+        if (!markedVertices[*setIterator])
+        {
+            depthFirstTraversal(currentGraph, *setIterator, markedVertices);
+        }
+    }
+}
+
+template <class Type>
+void Graph<Type> :: breadthFirstTraversal(Graph<Type> currentGraph, int vertex)
+{
+    bool markedVertices[MAXIMUM];
+    std :: set<int> connections;
+    std :: set<int> :: iterator setIterator;
+    std :: queue<int> vertexQueue;
+    assert (vertex < currentGraph.size());
+    
+    std :: fill_n(markedVertices, currentGraph.size(), false);
+    markedVertices[vertex] = true;
+    cout << currentGraph[vertex] << endl;
+    vertexQueue.push(vertex);
+    while (!vertexQueue.empty())
+    {
+        connections = currentGraph.neighbors(vertexQueue.front());
+        vertexQueue.pop();
+        
+        for (setIterator = connections.begin(); setIterator != connections.end(); setIterator++)
+        {
+            if (!markedVertices[*setIterator])
+            {
+                markedVertices[*setIterator] = true;
+                cout << currentGraph[*setIterator] << endl;
+                vertexQueue.push(*setIterator);
+            }
+        }
+    }
 }
 

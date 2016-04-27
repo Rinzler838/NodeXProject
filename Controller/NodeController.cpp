@@ -127,11 +127,11 @@ void NodeController :: doMergeSort()
 
 void NodeController :: tryTree()
 {
-    CTECBinaryTree<int> testTree;
-    testTree.insert(7);
-    testTree.insert(10);
-    testTree.insert(-5);
-    testTree.insert('4');
+    CTECBinaryTree<int> testTree();
+    testTree().insert(7);
+    testTree().insert(10);
+    testTree().insert(-5);
+    testTree().insert('4');
     
     cout << testTree.contains('7');
     cout << " Inorder Traversal " << endl;
