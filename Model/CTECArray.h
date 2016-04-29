@@ -26,6 +26,7 @@ public:
 	Type get(int position);
 	void set(int position, const Type& value);
     void selectionSort();
+    
 };
 
 #endif /* MODEL_CTECARRAY_H_ */

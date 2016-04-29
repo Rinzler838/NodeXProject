@@ -127,21 +127,32 @@ void NodeController :: doMergeSort()
 
 void NodeController :: tryTree()
 {
-    CTECBinaryTree<int> testTree();
-    testTree().insert(7);
-    testTree().insert(10);
-    testTree().insert(-5);
-    testTree().insert('4');
+    CTECBinaryTree<int> testTree;
+    testTree.insert(7);
+    testTree.insert(10);
+    testTree.insert(-5);
+    testTree.insert('4');
     
     cout << testTree.contains('7');
-    cout << " Inorder Traversal " << endl;
+    cout << "\nInorder Traversal " << endl;
     testTree.inorderTraversal(testTree.getRoot());
-    testTree.remove
     cout << "\nPreorder Traversal " << endl;
     testTree.preorderTraversal(testTree.getRoot());
     cout << "\nPostorder Traversal " << endl;
     testTree.postorderTraversal(testTree.getRoot());
     cout << "\nTrees " << endl;
+}
+
+void NodeController :: tryGraph()
+{
+    Graph<int> testGraph;
+    testGraph.addVertex(7);
+    testGraph.addVertex(18);
+    //7 vertices
+    //Connect them
+    testGraph.addEdge(0, 1);
+    testGraph.addEdge(1, 0);
+    testGraph.addEdge(9, 9);
 }
 
 void NodeController :: mergeSort(int data[], int size)
@@ -229,10 +240,10 @@ int NodeController :: partition(int first, int last)
             smallIndex++;
             swap (smallIndex, index);
         }
-        swap (first, smallIndex);
-        
-        return smallIndex;
     }
+    swap (first, smallIndex);
+    
+    return smallIndex;
 }
 
 void NodeController :: swap(int first, int last)

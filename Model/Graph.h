@@ -10,20 +10,21 @@
 #define Graph_h
 
 #include <set>
-#include "Graph.cpp"
+
 
 template <class Type>
 class Graph
 {
 private:
     static const int MAXIMUM = 20;
-    bool egdes [MAXIMUM][MAXIMUM]; //This is the adjacency matrix.
+    bool edges [MAXIMUM][MAXIMUM]; //This is the adjacency matrix.
     Type labels [MAXIMUM];
     int manyVertices;
     void depthFirstTraversal(Graph<Type> currentGraph, int vertex, bool * markedVertices);
 public:
     Graph();
     virtual ~Graph();
+    
     void addVertex(const Type & label);
     void addEdge(int source, int target);
     void removeEdge(int source, int target);

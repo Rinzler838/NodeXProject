@@ -19,11 +19,11 @@ TreeNode<Type> :: TreeNode()
 template <class Type>
 TreeNode<Type> :: TreeNode(const Type & value)
 {
-    this->leftChilde = nullptr;
+    this->leftChild = nullptr;
     this->rightChild = nullptr;
     this->parent = nullptr;
     
-    this->setVaue(value);
+    this->setValue(value);
 }
 
 template <class Type>

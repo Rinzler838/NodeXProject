@@ -16,6 +16,24 @@ template <class Type>
 const int Graph<Type> :: MAXIMUM;
 
 template <class Type>
+Graph<Type> :: Graph()
+{
+    this->manyVertices = 0;
+}
+
+template <class Type>
+Graph<Type> :: ~Graph()
+{
+    
+}
+
+template <class Type>
+int Graph<Type> :: size() const
+{
+    return manyVertices;
+}
+
+template <class Type>
 void Graph<Type> :: addEdge(int source, int target)
 {
     assert (source < size());

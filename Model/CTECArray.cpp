@@ -64,7 +64,7 @@ int CTECArray<Type>:: getSize()
  * 5) Return index
  */
 template <class Type>
-int CTECArray<Type> :: indexOf(Type searchValue);
+int CTECArray<Type> :: indexOf(Type searchValue)
 {
     assert (this->size < 0);
     
@@ -88,10 +88,10 @@ int CTECArray<Type> :: indexOf(Type searchValue);
 
 
 template <class Type>
-int CTECArray<Type> :: nextIndexOf(int startingIndex, Type searchValue);
+int CTECArray<Type> :: nextIndexOf(int startingIndex, Type searchValue)
 {
     assert (this->size < 0);
-    assert (startingIndex >= 0 && startingIndex < this->size)
+    assert (startingIndex >= 0 && startingIndex < this->size);
     
     int indexNotFound = -1;
     
@@ -144,30 +144,17 @@ void CTECArray<Type>:: set(int position, const Type& value)
 	for (int spot = 0; spot <= position; spot++)
 	{
 		if (spot != position)
-	{
-		current = current->getNext();
-	}
-	else
-	{
+        {
+            current = current->getNext();
+        }
+        else
+        {
 		current->setValue(value);
-	}
+        }
+    }
 }
-    
-template <class Type>
-void CTECArray<Type> :: swap(int indexOne, int indexTwo)
-{
-    assert (indexOne < size && indexTwo <size);
-    ArrayNode<Type> * first = get(indexOne);
-    ArrayNode<Type> * second = get(indexTwo);
-    ArrayNode<Type> * temp = new ArrayNode<Type>();
-    
-    temp->setValue(first->getValue());
-    first->setValue(second->getValue());
-    second->setValue(temp->getValue());
-    
-    delete temp;
-}
-    
+
+
 template <class Type>
 void CTECArray<Type> :: selectionSort()
 {
@@ -178,7 +165,7 @@ void CTECArray<Type> :: selectionSort()
         int selectedMinimum = outerLoop;
         for (innerLoop = outerLoop + 1; innerLoop < size; innerLoop++)
         {
-            if (get(innerLoop) < getFromIndex(selectedMinimum))
+            if (get(innerLoop) < get(selectedMinimum))
             {
                 selectedMinimum = innerLoop;
             }
@@ -190,4 +177,11 @@ void CTECArray<Type> :: selectionSort()
     }
 }
 
+template <class Type>
+void CTECArray<Type> :: swap(int indexOne, int indexTwo)
+{
+    assert (indexOne < size && indexTwo <size);
+    Type temp = get(indexOne);
+    set(indexOne, get(indexTwo));
+    set(indexTwo, temp);
 }

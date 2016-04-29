@@ -11,11 +11,13 @@
 #include <iostream>
 #include <string>
 
-#include "../Model/Node.h"
-#include "../Model/ArrayNode.h"
-#include "../Model/CTECArray.h"
-#include "../Model/CTECList.h"
-#include "../Model/Timer.h"
+#include "../Model/Node.cpp"
+#include "../Model/ArrayNode.cpp"
+#include "../Model/CTECArray.cpp"
+#include "../Model/CTECList.cpp"
+#include "../Model/CTECBinaryTree.cpp"
+#include "../Model/Graph.cpp"
+#include "../Model/Timer.cpp"
 
 using namespace std;
 
@@ -35,7 +37,9 @@ private:
     void doMergeSort();
     int * mergeData;
     void mergeSort(int data [], int size);
-    void merge(int data [], int sizOne, int sizeTwo);
+    void merge(int data [], int sizeOne, int sizeTwo);
+    
+    void tryGraph();
     void tryTree();
 public:
     NodeController();

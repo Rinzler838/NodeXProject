@@ -32,8 +32,6 @@ template <class Type>
 bool CTECBinaryTree<Type> :: insert(const Type & value)
 {
     TreeNode<Type> * insertedNode = new TreeNode<Type>(value);
-    TreeNode<Type> * current;
-    TreeNode<Type> * trailingCurrent;
     
     assert (insertedNode != nullptr);
     
@@ -127,7 +125,7 @@ void CTECBinaryTree<Type> :: remove(TreeNode<Type> * nodeToRemove)
         current = nodeToRemove->getLeftChild();
         trailing = nullptr;
         
-        while (current->getRightChild != nullptr)
+        while (current->getRightChild() != nullptr)
         {
             trailing = current;
             current = current->getRightChild();
@@ -152,7 +150,7 @@ void CTECBinaryTree<Type> :: inorderTraversal(TreeNode<Type> * currentNode)
 {
     if (currentNode != nullptr)
     {
-        inorderTraveral(currentNode->getLeftChild());
+        inorderTraversal(currentNode->getLeftChild());
         cout << currentNode->getValue() << " ";
         inorderTraversal(currentNode->getRightChild());
     }
@@ -207,7 +205,7 @@ bool CTECBinaryTree<Type> :: contains(Type value)
      * Else if the value is not in the root and is greater then root - call contains on right
      */
     
-    if (root->getValue == value)
+    if (root->getValue() == value)
     {
         return true;
     }
@@ -236,7 +234,7 @@ bool CTECBinaryTree<Type> :: contains(Type value, TreeNode<Type> * currentTree)
         isInTree = false;
     }
     
-    if (currentTree->getValue == value)
+    if (currentTree->getValue() == value)
     {
         isInTree = true;
     }
