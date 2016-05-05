@@ -270,6 +270,3 @@ void NodeController :: doQuick()
     
     delete [] mergeData;
 }
-
-
-
