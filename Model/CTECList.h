@@ -32,7 +32,7 @@ public:
 	Type removeFromFront();
 	Type removeFromEnd();
 	Type removeFromIndex(int index);
-	Type set(int index, Type value);
+	void set(int index, Type value);
     int indexOf(Type searchValue);
     void selectionSort();
 };

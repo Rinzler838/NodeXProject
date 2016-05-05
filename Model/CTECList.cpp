@@ -103,8 +103,8 @@ Type CTECList<Type>::getFromIndex(int index)
             }
 			current = current->getNext();
 		}
-		return returnValue;
 	}
+    return returnValue;
 }
 
 /**
@@ -262,9 +262,9 @@ Type CTECList<Type>::removeFromIndex(int index)
 	Type thingToRemove;
     
 	//Create references
-    ArrayNode<Type> * previous;
-    ArrayNode<Type> * deleteMe;
-    ArrayNode<Type> * newNext;
+    ArrayNode<Type> * previous = nullptr;
+    ArrayNode<Type> * deleteMe = nullptr;
+    ArrayNode<Type> * newNext = nullptr;
 
 	if (index == 0)
 	{
@@ -350,7 +350,7 @@ void CTECList<Type> :: calculateSize()
  * Sets data members to their proper values.
  */
 template <class Type>
-Type CTECList<Type> :: set(int index, Type value)
+void CTECList<Type> :: set(int index, Type value)
 {
 	assert(index < size && index >= 0);
 

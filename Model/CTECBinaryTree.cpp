@@ -43,11 +43,11 @@ bool CTECBinaryTree<Type> :: insert(const Type & value)
     {
         if (value < root->getValue())
         {
-            insert(value, root->getLeftChild());
+            insert(value);
         }
         else
         {
-            insert(value, root->getRightChild());
+            insert(value);
         }
         return true;
     }
