@@ -31,8 +31,8 @@ public:
     ~CTECHashTable();
     int getSize();
     void add(HashNode<Type> currentNode);
-    bool remove(const Type& value);
-    bool contains(const Type & value);
+    bool remove(HashNode<Type> currentNode);
+    bool contains(HashNode<Type> currentNode);
 };
     
     //find . "(" -name "*.m" -or -name "*.mm" -or -name "*.cpp" -or -name "*.swift" ")" -print0 | xargs -0 wc -l
