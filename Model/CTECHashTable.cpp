@@ -14,7 +14,7 @@ CTECHashTable<Type> :: CTECHashTable()
     this->capacity = 101;
     this->efficiencyPercentage = .667;
     this->size;
-    this->internalStorage = new Type[capacity];
+    this->internalStorage = new HashNode<Type>[capacity];
 }
 
 template <class Type>
@@ -30,16 +30,16 @@ int CTECHashTable<Type> :: getSize()
 }
 
 template <class Type>
-void CTECHashTable<Type> :: add(const Type & value)
+void CTECHashTable<Type> :: add(HashNode<Type> currentNode)
 {
-    if (!contains(value))
+    if (!contains(currentNode))
     {
         if (this->size/this->capacity >= this->efficiencyPercentage)
         {
             updateSize();
         }
         
-        int positionToInsert = findPosition(value);
+        int positionToInsert = findPosition(currentNode);
         
         if (internalStorage[positionToInsert] != nullptr)
         {
@@ -47,11 +47,26 @@ void CTECHashTable<Type> :: add(const Type & value)
             {
                 positionToInsert = (positionToInsert + 1) % capacity;
             }
-            internalStorage[positionToInsert] = value;
+            internalStorage[positionToInsert] = currentNode;
         }
         else
         {
-            internalStorage[positionToInsert] = value;
+            internalStorage[positionToInsert] = currentNode;
         }
     }
+}
+
+/*
+ * Very basic hashing algorithm
+ * Simply assigns a position based on modulo math.
+ */
+template <class Type>
+int CTECHashTable<Type> :: findPosition(HashNode<Type> currentNode)
+{
+    //We are going to "hash" the key the of HashNode to find itsstorage spot.
+    int position = 0;
+    
+    position = currentNode.getKey() % capacity;
+    
+    return position;
 }
