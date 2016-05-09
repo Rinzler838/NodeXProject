@@ -34,7 +34,7 @@ void CTECHashTable<Type> :: add(const Type & value)
 {
     if (!contains(value))
     {
-        if (this->size/this->capacity >= this->eiciencyPercentage)
+        if (this->size/this->capacity >= this->efficiencyPercentage)
         {
             updateSize();
         }
@@ -45,7 +45,7 @@ void CTECHashTable<Type> :: add(const Type & value)
         {
             while (internalStorage[positionToInsert] != nullptr)
             {
-                positionToInsert %= 1;
+                positionToInsert = (positionToInsert + 1) % capacity;
             }
             internalStorage[positionToInsert] = value;
         }

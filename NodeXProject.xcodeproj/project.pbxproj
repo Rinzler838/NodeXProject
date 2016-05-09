@@ -18,6 +18,7 @@
 		7C3AB6B51C99A539000FFBC4 /* Timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7C3AB6AD1C99A539000FFBC4 /* Timer.cpp */; };
 		7C9208C91CDB976D00F5A6B6 /* CTECHashTable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7C9208C71CDB976D00F5A6B6 /* CTECHashTable.cpp */; };
 		7C9BF2C61CCE5983003BE686 /* Graph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7C9BF2C41CCE5983003BE686 /* Graph.cpp */; };
+		7CDB61161CE0D23200D377D1 /* HashNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7CDB61141CE0D23200D377D1 /* HashNode.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -56,6 +57,8 @@
 		7C9208C81CDB976D00F5A6B6 /* CTECHashTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTECHashTable.h; sourceTree = "<group>"; };
 		7C9BF2C41CCE5983003BE686 /* Graph.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Graph.cpp; sourceTree = "<group>"; };
 		7C9BF2C71CCE59B2003BE686 /* Graph.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Graph.h; sourceTree = "<group>"; };
+		7CDB61141CE0D23200D377D1 /* HashNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HashNode.cpp; sourceTree = "<group>"; };
+		7CDB61151CE0D23200D377D1 /* HashNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HashNode.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +129,8 @@
 				7C9BF2C71CCE59B2003BE686 /* Graph.h */,
 				7C9208C71CDB976D00F5A6B6 /* CTECHashTable.cpp */,
 				7C9208C81CDB976D00F5A6B6 /* CTECHashTable.h */,
+				7CDB61141CE0D23200D377D1 /* HashNode.cpp */,
+				7CDB61151CE0D23200D377D1 /* HashNode.h */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -197,6 +202,7 @@
 				7C3AB6B31C99A539000FFBC4 /* CTECList.cpp in Sources */,
 				7C9208C91CDB976D00F5A6B6 /* CTECHashTable.cpp in Sources */,
 				7C3AB6B21C99A539000FFBC4 /* CTECArray.cpp in Sources */,
+				7CDB61161CE0D23200D377D1 /* HashNode.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
