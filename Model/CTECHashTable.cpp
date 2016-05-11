@@ -16,18 +16,42 @@ CTECHashTable<Type> :: CTECHashTable()
     this->efficiencyPercentage = .667;
     this->size;
     this->internalStorage = new HashNode<Type>[capacity];
+    this-tableStorage = new CTECList<HashNode <Type>>[capacity];
 }
 
 template <class Type>
 CTECHashTable<Type> :: ~CTECHashTable()
 {
     delete [] internalStorage;
+    delete [] tableStorage;
 }
 
 template <class Type>
 int CTECHashTable<Type> :: getSize()
 {
     return this->size();
+}
+
+template <class Type>
+void CTECHashTable<Type> :: addToTable(HashNode<Type> currentNode)
+{
+    if (this->size/this->capacity >= this->efficiencyPercentage)
+    {
+        updateTableCapacity();
+    }
+    //Find where to put the value
+    int positionToInsert = findPosition(currentNode);
+    //If the spot is empty, make a new list and add the node
+    if (tableStorage[positionToInsert] == nullptr)
+    {
+        CTECList<HashNode<Type>> hashList;
+        tableStorage[positionToInsert] = hashList;
+        hashList.addEnd(currentNode);
+    }
+    else //Add the node
+    {
+        tableStorage[positionToInsert].addEnd(currentNode);
+    }
 }
 
 template <class Type>
@@ -97,6 +121,39 @@ void CTECHashTable<Type> :: updateSize()
     }
     
     internalStorage = updatedStorage;
+}
+
+template <class Type>
+void CTECHashTable<Type> :: updateTableCapacity()
+{
+    int updatedCapacity = getNextPrime();
+    CTECList<HashNode<Type>> * updateTable = new CTECList<HashNode<Type>>[updatedCapacity];
+    
+    int oldTableCapacity = tableCapacity;
+    tableCapacity = updatedCapacity;
+    
+    for (int index = 0; index < oldTableCapacity; index++)
+    {
+        if (tableStorage[index] != nullptr)
+        {
+            CTECList<HashNode<Type>> temp = tableStorage[index];
+            for (int innerIndex = 0; innerIndex < tableStorage[index].getSize(); innerIndex++)
+            {
+                int updatedTablePosition = findPosition(temp.get(index));
+                if (updateTable[updatedTablePosition] == nullptr)
+                {
+                    CTECList<HashNode<Type>> updatedList;
+                    updatedList.addEnd(temp.get(index));
+                }
+                else
+                {
+                    updateTable[updatedTablePosition].addEnd(temp.getFromIndex(index));
+                }
+            }
+        }
+    }
+    
+    tableStorage = updateTable;
 }
 
 template <class Type>
@@ -188,4 +245,13 @@ bool CTECHashTable<Type> :: remove(HashNode<Type> currentNode)
             }
         }
     }
+    
+    return wasRemoved;
 }
+
+template <class Type>
+int CTECHashTable<Type> :: handleCollision(HashNode<Type> currentNode)
+{
+    
+}
+

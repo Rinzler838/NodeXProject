@@ -10,6 +10,7 @@
 #define CTECHashTable_h
 
 #include "HashNode.cpp"
+#include "CTECList.cpp"
 
 template <class Type>
 class CTECHashTable
@@ -19,20 +20,23 @@ private:
     double efficiencyPercentage;
     int size;
     HashNode<Type> * internalStorage;
+    CTECList<HashNode <Type>> * tableStorage;
     
-    int findPosition(HashNode<Type> currentNode);
-    int handleCollision(HashNode<Type> currentNode);
-    void updateSize();
-    
-    int getNextPrime();
-    bool isPrime(int candidateNumber);
+    int findPosition(HashNode<Type> currentNode);//Done
+    int findTablePosition(HashNode<Type>);//Done
+    int handleCollision(HashNode<Type> currentNode);//Done
+    void updateSize();//Done
+    void updateTableCapacity();
+    int getNextPrime();//Done
+    bool isPrime(int candidateNumber);//Done
 public:
-    CTECHashTable();
-    ~CTECHashTable();
-    int getSize();
-    void add(HashNode<Type> currentNode);
-    bool remove(HashNode<Type> currentNode);
-    bool contains(HashNode<Type> currentNode);
+    CTECHashTable();//Done
+    ~CTECHashTable();//Done
+    int getSize();//Done
+    void add(HashNode<Type> currentNode);//Done
+    void addToTable(HashNode<Type> currentNode);//Done
+    bool remove(HashNode<Type> currentNode);//Done
+    bool contains(HashNode<Type> currentNode);//Done
 };
     
     //find . "(" -name "*.m" -or -name "*.mm" -or -name "*.cpp" -or -name "*.swift" ")" -print0 | xargs -0 wc -l
