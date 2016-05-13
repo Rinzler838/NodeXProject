@@ -18,6 +18,8 @@
 #include "../Model/CTECBinaryTree.cpp"
 #include "../Model/Graph.cpp"
 #include "../Model/Timer.cpp"
+#include "../Model/CTECHashTable.cpp"
+#include "../Model/HashNode.cpp"
 
 using namespace std;
 
@@ -41,6 +43,8 @@ private:
     
     void tryGraph();
     void tryTree();
+    
+    void testHashTable();
 public:
     NodeController();
 	virtual ~NodeController();

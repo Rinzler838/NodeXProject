@@ -10,23 +10,23 @@
 #define CTECHashTable_h
 
 #include "HashNode.cpp"
-#include "CTECList.cpp"
+#include "CTECList.h"
 
 template <class Type>
 class CTECHashTable
 {
 private:
+    int size;
     int capacity;
     double efficiencyPercentage;
-    int size;
-    HashNode<Type> * internalStorage;
+    HashNode<Type> ** internalStorage;
     CTECList<HashNode <Type>> * tableStorage;
     
     int findPosition(HashNode<Type> currentNode);//Done
     int findTablePosition(HashNode<Type>);//Done
     int handleCollision(HashNode<Type> currentNode);//Done
     void updateSize();//Done
-    void updateTableCapacity();
+    void updateTableCapacity();//Done
     int getNextPrime();//Done
     bool isPrime(int candidateNumber);//Done
 public:

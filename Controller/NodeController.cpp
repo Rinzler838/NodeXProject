@@ -135,11 +135,11 @@ void NodeController :: tryTree()
     
     cout << testTree.contains('7');
     cout << "\nInorder Traversal " << endl;
-    testTree.inorderTraversal(testTree.getRoot());
+    //testTree.inorderTraversal(testTree.getRoot());
     cout << "\nPreorder Traversal " << endl;
-    testTree.preorderTraversal(testTree.getRoot());
+    //testTree.preorderTraversal(testTree.getRoot());
     cout << "\nPostorder Traversal " << endl;
-    testTree.postorderTraversal(testTree.getRoot());
+    //testTree.postorderTraversal(testTree.getRoot());
     cout << "\nTrees " << endl;
 }
 
@@ -153,6 +153,32 @@ void NodeController :: tryGraph()
     testGraph.addEdge(0, 1);
     testGraph.addEdge(1, 0);
     testGraph.addEdge(9, 9);
+}
+
+void NodeController :: testHashTable()
+{
+    CTECHashTable<int> tempTable;
+    HashNode<int> tempArray[10];
+    
+    for (int spot = 0; spot < 10; spot++)
+    {
+        int randomValue = rand();
+        int randomKey = rand();
+        HashNode<int> temp = HashNode<int>(randomKey, randomValue);
+        tempTable.add(temp);
+        tempArray[spot] = temp;
+    }
+    bool test = tempTable.contains(tempArray[0]);
+    string result;
+    if (test)
+    {
+        result = "It is here";
+    }
+    else
+    {
+        result = "It is not here";
+    }
+    cout << result << endl;
 }
 
 void NodeController :: mergeSort(int data[], int size)

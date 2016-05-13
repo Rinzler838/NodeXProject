@@ -238,7 +238,7 @@ bool CTECBinaryTree<Type> :: contains(Type value, TreeNode<Type> * currentTree)
     {
         isInTree = true;
     }
-    else if(value < currentTree->getValue())
+    else if (value < currentTree->getValue())
     {
         isInTree = contains(value, currentTree->getLeftChild());
     }
