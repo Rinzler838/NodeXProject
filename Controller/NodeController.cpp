@@ -23,7 +23,7 @@ NodeController :: ~NodeController()
 
 void NodeController :: start()
 {
-    
+    tryTree();
 }
 
 void NodeController :: searchList()
@@ -135,11 +135,11 @@ void NodeController :: tryTree()
     
     cout << testTree.contains('7');
     cout << "\nInorder Traversal " << endl;
-    //testTree.inorderTraversal(testTree.getRoot());
+    testTree.inorderTraversal(testTree.getRoot());
     cout << "\nPreorder Traversal " << endl;
-    //testTree.preorderTraversal(testTree.getRoot());
+    testTree.preorderTraversal(testTree.getRoot());
     cout << "\nPostorder Traversal " << endl;
-    //testTree.postorderTraversal(testTree.getRoot());
+    testTree.postorderTraversal(testTree.getRoot());
     cout << "\nTrees " << endl;
 }
 

@@ -16,7 +16,7 @@ CTECHashTable<Type> :: CTECHashTable()
     this->efficiencyPercentage = .667;
     this->size;
     this->internalStorage = new HashNode<Type>*[capacity];
-    this-tableStorage = new CTECList<HashNode <Type>>[capacity];
+    this->tableStorage = new CTECList<HashNode <Type>>[capacity];
 }
 
 template <class Type>
@@ -72,7 +72,7 @@ void CTECHashTable<Type> :: add(HashNode<Type> currentNode)
             {
                 positionToInsert = (positionToInsert + 1) % capacity;
             }
-            internalStorage[positionToInsert] = currentNode;
+            internalStorage[positionToInsert] = &currentNode;
         }
         
         internalStorage[positionToInsert] = &currentNode;
@@ -209,7 +209,7 @@ bool CTECHashTable<Type> :: contains(HashNode<Type> currentNode)
     
     while (internalStorage[index] != nullptr && !isInTable)
     {
-        if (internalStorage[index].getValue() == currentNode.getValue())
+        if (internalStorage[index]->getValue() == currentNode.getValue())
         {
             isInTable = true;
         }
@@ -251,6 +251,10 @@ bool CTECHashTable<Type> :: remove(HashNode<Type> currentNode)
 template <class Type>
 int CTECHashTable<Type> :: handleCollision(HashNode<Type> currentNode)
 {
+    int reHashedPosition = findPosition(currentNode);
+    int random = rand();
+    reHashedPosition = (random + (reHashedPosition * reHashedPosition)) % capacity;
     
+    return reHashedPosition;
 }
 
