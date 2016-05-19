@@ -31,7 +31,7 @@ public:
     Type & operator [] (int vertex);
     int size() const;
     bool isEdge(int source, int target) const;
-    std :: set<int> neightbors(int vertex) const;
+    std :: set<int> neighbors(int vertex) const;
     Type operator [] (int vertex) const;
     void depthFirstTraversal(Graph<Type> currentGraph, int vertex);
     void breadthFirstTraversal(Graph<Type> currentGh, int vertex);

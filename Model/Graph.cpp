@@ -86,7 +86,7 @@ Type Graph<Type> :: operator[](int vertex) const
 }
 
 template <class Type>
-std :: set<int> Graph<Type> :: neightbors(int vertex) const
+std :: set<int> Graph<Type> :: neighbors(int vertex) const
 {
     std :: set<int> answer;
     assert (vertex < size());
