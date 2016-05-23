@@ -187,7 +187,7 @@ bool CTECHashTable<Type> :: isPrime(int candidateNumber)
     }
     else
     {
-        for (int next = 0; next <= sqrt(candidateNumber) + 1; next += 2)
+        for (int next = 1; next <= sqrt(candidateNumber) + 1; next += 2)
         {
             if (candidateNumber % next == 0)
             {

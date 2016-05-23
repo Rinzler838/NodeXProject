@@ -41,7 +41,11 @@ bool CTECBinaryTree<Type> :: insert(const Type & value)
     }
     else
     {
-        if (value < root->getValue())
+        if (root == nullptr)
+        {
+            root->setValue(value);
+        }
+        else if (value < root->getValue())
         {
             insert(value);
         }
@@ -204,18 +208,24 @@ bool CTECBinaryTree<Type> :: contains(Type value)
      * If the value is not in the root and is less than root - call contains on left child
      * Else if the value is not in the root and is greater then root - call contains on right
      */
-    
-    if (root->getValue() == value)
+    if (size > 0)
     {
-        return true;
-    }
-    else if(value < root->getValue())
-    {
-        return contains(value, root->getLeftChild());
+        if (root->getValue() == value)
+        {
+            return true;
+        }
+        else if(value < root->getValue())
+        {
+            return contains(value, root->getLeftChild());
+        }
+        else
+        {
+            return contains(value, root->getRightChild());
+        }
     }
     else
     {
-        return contains(value, root->getRightChild());
+        return false;
     }
 }
 

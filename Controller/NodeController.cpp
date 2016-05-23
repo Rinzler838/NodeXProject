@@ -194,15 +194,71 @@ void NodeController :: testHashTable()
         tempTable.add(temp);
         tempArray[spot] = temp;
     }
-    bool test = tempTable.contains(tempArray[0]);
+    bool testOne = tempTable.contains(tempArray[0]);
+    bool testTwo = tempTable.contains(tempArray[1]);
+    bool testThree = tempTable.contains(tempArray[2]);
+    bool testFour = tempTable.contains(tempArray[11]);
+    bool testFive = tempTable.contains(tempArray[12]);
+    bool testSix = tempTable.contains(tempArray[13]);
     string result;
-    if (test)
+    
+    if (testOne)
     {
-        result = "It is here";
+        result = "Value 1 is here";
     }
     else
     {
-        result = "It is not here";
+        result = "Value 1 is not here";
+    }
+    cout << result << endl;
+    
+    if (testTwo)
+    {
+        result = "Value 2 is here";
+    }
+    else
+    {
+        result = "Value 2 is not here";
+    }
+    cout << result << endl;
+    
+    if (testThree)
+    {
+        result = "Value 3 is here";
+    }
+    else
+    {
+        result = "Value 3 is not here";
+    }
+    cout << result << endl;
+    
+    if (testFour)
+    {
+        result = "Value 4 is here";
+    }
+    else
+    {
+        result = "Value 4 is not here";
+    }
+    cout << result << endl;
+    
+    if (testFive)
+    {
+        result = "Value 5 is here";
+    }
+    else
+    {
+        result = "Value 5 is not here";
+    }
+    cout << result << endl;
+    
+    if (testSix)
+    {
+        result = "Value 6 is here";
+    }
+    else
+    {
+        result = "Value 6 is not here";
     }
     cout << result << endl;
 }
