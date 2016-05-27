@@ -23,7 +23,7 @@ NodeController :: ~NodeController()
 
 void NodeController :: start()
 {
-    testHashTable();
+    tryTree();
 }
 
 void NodeController :: searchList()
@@ -128,19 +128,31 @@ void NodeController :: doMergeSort()
 void NodeController :: tryTree()
 {
     CTECBinaryTree<int> testTree;
+    
+    cout << "Starting size: " << testTree.getSize() << endl;
     testTree.insert(7);
     testTree.insert(10);
     testTree.insert(-5);
-    testTree.insert('4');
+    testTree.insert(4);
+    testTree.insert(-2);
+    testTree.insert(8);
+    testTree.insert(15);
+    cout << "Inserting values into testTree..." <<  endl;
+    cout << "Contents after inserting values: " << testTree.getSize() << endl;
     
-    cout << testTree.contains('7');
-    cout << "\nInorder Traversal " << endl;
+    cout << "\nInorder Traversal: " << endl;
     testTree.inorderTraversal(testTree.getRoot());
-    cout << "\nPreorder Traversal " << endl;
+    
+    cout << "\nPreorder Traversal: " << endl;
     testTree.preorderTraversal(testTree.getRoot());
-    cout << "\nPostorder Traversal " << endl;
+    
+    cout << "Postorder Traversal: " << endl;
     testTree.postorderTraversal(testTree.getRoot());
-    cout << "\nTrees " << endl;
+    
+    cout << "\nRemoving values from testTree..." << endl;
+    testTree.remove(-2);
+    testTree.remove(-5);
+    cout << "\nContents after removal (Post-order traversal): " << testTree.getSize() << endl;
 }
 
 void NodeController :: tryGraph()

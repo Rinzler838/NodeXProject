@@ -29,7 +29,7 @@ public:
     ~CTECBinaryTree(); //Done
     bool insert(const Type & value); //Done
     bool contains(Type value); //Done
-    Type remove(const Type & value); //Done
+    void remove(const Type & value); //Done
     int getHeight();
     int getSize(); //Done
     bool isBalanced();
